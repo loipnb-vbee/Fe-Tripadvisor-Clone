@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Layout from "@/containers/Layout";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -28,8 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="w-18 h-18 bg-red" />
-        {children}
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
