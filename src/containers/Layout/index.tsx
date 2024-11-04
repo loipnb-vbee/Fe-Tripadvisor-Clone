@@ -7,11 +7,11 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
+    <div className="w-full max-w-[1136px] mx-auto">
       <Header />
       {children}
       <Footer />
-    </>
+    </div>
   );
 };
 
