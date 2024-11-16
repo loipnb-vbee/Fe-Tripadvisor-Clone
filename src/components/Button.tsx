@@ -25,10 +25,11 @@ const CustomButton: React.FC<ButtonProps> = ({
       buttonClass += " bg-transparent hover:bg-gray-100";
       break;
     case buttonType.CONTAINED:
-      buttonClass += " bg-red-500 text-white hover:bg-slate-700";
+      buttonClass += " bg-yellow-500 text-white hover:bg-slate-700";
       break;
     case buttonType.OUTLINED:
-      buttonClass += " border border-red-500 text-red-500 hover:bg-slate-700";
+      buttonClass +=
+        " bg-white border border-black text-black hover:bg-slate-300";
       break;
     default:
       break;
