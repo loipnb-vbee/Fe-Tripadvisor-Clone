@@ -1,54 +1,64 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type DropDownButtonProps = {
   text: string;
-  // type: string;
+  items: { id: string; onClick?: () => void; description: string }[];
 };
 
 type DropDownItemProps = {
   text: string;
-  // type: string;
   onClick?: () => void;
 };
 
-const dropDownButtonType = {
-  TEXT: "text",
-};
-
-const DropdownItem: React.FC<DropDownItemProps> = ({ text }) => {
+const DropdownItem: React.FC<DropDownItemProps> = ({ text, onClick }) => {
   return (
-    <a
-      href="#"
-      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+    <button
+      onClick={onClick}
+      className="block px-4 py-2 text-base text-black hover:bg-gray-100 w-full text-left font-bold"
     >
       {text}
-    </a>
+    </button>
   );
 };
 
-const DropdownButton: React.FC<DropDownButtonProps> = ({ text }) => {
+const DropdownButton: React.FC<DropDownButtonProps> = ({ text, items }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  // Function to toggle the dropdown
-  const toggleDropdown = () => setIsOpen(!isOpen);
+  const handleToggleDropDown = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      )
+        setIsOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [dropdownRef]);
 
   return (
-    <div className="relative inline-block text-left" onBlur={toggleDropdown}>
+    <div className="relative inline-block" ref={dropdownRef}>
       {/* Button to open dropdown */}
       <button
-        onClick={toggleDropdown}
+        onClick={handleToggleDropDown}
         className="rounded-[20px] py-[10px] px-4 font-bold text-base bg-transparent hover:bg-gray-100"
       >
         {text}
       </button>
-
       {/* Dropdown menu */}
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
-            <DropdownItem text="Option1" />
-            <DropdownItem text="Option2" />
-            <DropdownItem text="Option1" />
+        <div className="origin-top-right absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="p-1">
+            {items.map((item) => (
+              <DropdownItem
+                key={item.id}
+                text={item.description}
+                onClick={item.onClick}
+              />
+            ))}
           </div>
         </div>
       )}

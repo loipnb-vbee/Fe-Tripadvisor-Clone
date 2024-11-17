@@ -1,5 +1,5 @@
 import "../styles/globals.css"; // Import global styles
-import Layout from "@/containers/Layout"; // Layout component
+// import Layout from "@/containers/Layout"; // Layout component
 import React from "react";
 import { AppProps } from "next/app"; // TypeScript types for App component
 import { appWithTranslation } from "next-i18next";
@@ -16,9 +16,9 @@ function App({ Component, pageProps }) {
   console.log("component", Component);
   console.log("Page props", pageProps);
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    // <Layout>
+    <Component {...pageProps} />
+    // </Layout>
   );
 }
 

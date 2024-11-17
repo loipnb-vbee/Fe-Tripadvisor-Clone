@@ -1,6 +1,12 @@
+import SectionWrapper from "@/components/SectionWrapper";
+
 const Footer = () => {
   return (
-    <div className="flex justify-start gap-8 mx-6 py-4 items-center bg-slate-200 ">
+    <SectionWrapper
+      id="footer-wrapper"
+      className="bg-slate-200"
+      childrenClassName="flex justify-start gap-8 items-center"
+    >
       <div className="flex-col gap-3">
         <div>Giới thiệu về Tripadvisor</div>
         <div>Về chúng tôi</div>
@@ -17,7 +23,7 @@ const Footer = () => {
         <div>Chủ sở hữu</div>
         <div>Chiến lược doanh nghiệp</div>
       </div>
-    </div>
+    </SectionWrapper>
   );
 };
 
