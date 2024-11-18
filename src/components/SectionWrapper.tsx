@@ -1,8 +1,15 @@
-const SectionWrapper = ({
+type SectionWrapperProps = {
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
+  childrenClassName?: string;
+};
+
+const SectionWrapper: React.FC<SectionWrapperProps> = ({
   children,
-  className = "",
+  className = '',
   id,
-  childrenClassName = "",
+  childrenClassName = '',
 }) => (
   // py-10 px-4 lg:p-20 2xl:px-40
   <div id={id} className={`flex justify-center p-4 ${className}`}>
