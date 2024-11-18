@@ -1,6 +1,6 @@
-import SectionWrapper from "@/components/SectionWrapper";
-import SmallCard from "@/components/SmallCard";
-import { useTranslation } from "react-i18next";
+import SectionWrapper from '@/components/SectionWrapper';
+import SmallCard from '@/components/SmallCard';
+import { useTranslation } from 'react-i18next';
 
 const GourmetSuggest = () => {
   const { t, i18n } = useTranslation();
