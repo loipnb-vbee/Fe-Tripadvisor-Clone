@@ -1,3 +1,11 @@
 {
-  "test": "kiem tra dich tieng viet"
+  "login": "Đăng nhập",
+  "signup": "Đăng ký",
+  "language": "Ngôn ngữ",
+  "hanoi": "Hà Nội",
+  "hotels": "Khách sạn",
+  "activities": "Hoạt động giải trí",
+  "restaurants": "Nhà hàng",
+  "flights": "Chuyến bay",
+  "search": "Tìm kiếm"
 }

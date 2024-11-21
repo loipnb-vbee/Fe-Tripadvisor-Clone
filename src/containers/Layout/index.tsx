@@ -1,5 +1,5 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from './Header';
+import Footer from './Footer';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,11 +7,11 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
+    <div className="relative">
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -1,42 +1,44 @@
-import React from "react";
+import React from 'react';
 
 type ButtonProps = {
   variant?: string;
   text: string;
   type: string;
   onClick?: () => void;
+  className?: string;
 };
 
 const buttonType = {
-  TEXT: "text",
-  CONTAINED: "contained",
-  OUTLINED: "outlined",
+  TEXT: 'text',
+  CONTAINED: 'contained',
+  OUTLINED: 'outlined',
 };
 
 const CustomButton: React.FC<ButtonProps> = ({
   type = buttonType.TEXT,
   text,
   onClick,
+  className,
 }) => {
-  let buttonClass = "rounded-[20px] py-[10px] px-4 font-bold text-base";
+  let buttonClass = 'rounded-[20px] py-[10px] px-4 font-bold text-base';
 
   switch (type) {
     case buttonType.TEXT:
-      buttonClass += " bg-transparent hover:bg-gray-100";
+      buttonClass += ' bg-transparent hover:bg-gray-100';
       break;
     case buttonType.CONTAINED:
-      buttonClass += " bg-yellow-500 text-white hover:bg-slate-700";
+      buttonClass += ' bg-yellow-500 text-white hover:bg-slate-700';
       break;
     case buttonType.OUTLINED:
       buttonClass +=
-        " bg-white border border-black text-black hover:bg-slate-300";
+        ' bg-white border border-black text-black hover:bg-slate-300';
       break;
     default:
       break;
   }
 
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button className={`${buttonClass} ${className}`} onClick={onClick}>
       {text}
     </button>
   );

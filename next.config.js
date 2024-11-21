@@ -9,14 +9,14 @@ module.exports = withBundleAnalyzer({
     API_URL: process.env.API_URL,
   },
   reactStrictMode: true,
-  // images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: 'https',
-  //       hostname: '**',
-  //     },
-  //   ],
-  // },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
   i18n,
   // Use the CDN in production and localhost for development.
   // assetPrefix:
