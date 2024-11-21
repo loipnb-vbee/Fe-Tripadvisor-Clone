@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "src/pages/_app.tsx",
     "next.config.js"
-, "src/pages/index.tsx"  ],
+, "src/pages/index.tsx", "src/containers/Home/SwiperLocation.jsx"  ],
   "exclude": ["node_modules"]
 }

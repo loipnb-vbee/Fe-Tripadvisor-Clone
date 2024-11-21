@@ -9,13 +9,16 @@ module.exports = {
     locales: ['en', 'vi'],
     localeDetection: false,
   },
+  fallbackLng: {
+    default: ['en'],
+  },
   /** To avoid issues when deploying to some paas (vercel...) */
   localePath:
     typeof window === 'undefined'
       ? require('path').resolve('./public/locales')
       : '/locales',
 
-  reloadOnPrerender: process.env.NODE_ENV === 'development',
+  reloadOnPrerender: true,
 
   /**
    * @link https://github.com/i18next/next-i18next#6-advanced-configuration
@@ -23,5 +26,5 @@ module.exports = {
   // saveMissing: false,
   // strictMode: true,
   // serializeConfig: false,
-  // react: { useSuspense: false },
+  react: { useSuspense: false },
 };
