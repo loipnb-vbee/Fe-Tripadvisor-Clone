@@ -8,9 +8,12 @@ import {
   Pagination,
   Scrollbar,
 } from 'swiper/modules';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useRef } from 'react';
+import Picture from '@/components/Picture';
 
 const SwiperLocation = () => {
   const swiperRef = (useRef < Swiper) | (null > null);
@@ -29,35 +32,41 @@ const SwiperLocation = () => {
 
   const imagesData = [
     {
-      id: 'photo-o/29/02/6b/7b',
-      src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/02/6b/7b/caption.jpg?w=700&h=300&s=1',
+      id: 'photo-o/1b/33/f7/12',
+      src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg',
     },
     {
-      id: 'photo-o/29/02/07/d4',
-      src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/02/07/d4/caption.jpg?w=700&h=300&s=1&cx=1000&cy=666&chk=v1_763694e0140d23e6c8aa',
+      id: 'photo-o/12/44/7c/9e',
+      src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/44/7c/9e/view.jpg',
     },
     {
-      id: 'photo-o/2b/2d/40/95',
-      src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/2d/40/95/keep-on-planning.jpg?w=700&h=300&s=1&cx=492&cy=358&chk=v1_f64df95338d294710736',
+      id: 'photo-o/08/fc/8f/0f',
+      src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/fc/8f/0f/lake-of-the-restored.jpg',
     },
     {
-      id: 'photo-o/29/02/09/3e',
-      src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/02/09/3e/caption.jpg?w=700&h=300&s=1',
+      id: 'photo-o/10/fb/cc/a6',
+      src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/ef/50/cf/phu-chu-tich.jpg',
     },
   ];
 
   return (
     <SectionWrapper id="swiper-location-wrapper" className="mb-4">
       <Swiper
-        spaceBetween={40}
+        style={{
+          '--swiper-navigation-color': '#000',
+          '--swiper-pagination-color': '#fff',
+        }}
+        className="rounded-2xl"
+        // spaceBetween={40}
         ref={swiperRef}
         breakpoints={{
           768: { slidesPerView: 1 },
           1280: { slidesPerView: 1 },
           1536: { slidesPerView: 1 },
         }}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        modules={[Autoplay, Pagination]}
+        navigation={true}
+        loop={true}
+        modules={[Pagination, Navigation]}
         pagination={{ clickable: true }}
       >
         {imagesData.map((item) => (
@@ -66,13 +75,7 @@ const SwiperLocation = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <Image
-              className="w-full h-full object-cover rounded-2xl"
-              src={item.src}
-              width={640}
-              height={300}
-              priority
-            />
+            <Picture src={item.src} />
           </SwiperSlide>
         ))}
       </Swiper>
