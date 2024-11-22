@@ -9,7 +9,9 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="relative">
       <Header />
-      <main>{children}</main>
+      <main>
+        <div className="pt-28">{children}</div>
+      </main>
       <Footer />
     </div>
   );
