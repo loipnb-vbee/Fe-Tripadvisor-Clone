@@ -22,6 +22,10 @@ const CustomButton: React.FC<ButtonProps> = ({
 }) => {
   let buttonClass = 'rounded-[20px] py-[10px] px-4 font-bold text-base';
 
+  const handleClick = () => {
+    if (onClick) onClick();
+  };
+
   switch (type) {
     case buttonType.TEXT:
       buttonClass += ' bg-transparent hover:bg-gray-100';
@@ -38,7 +42,7 @@ const CustomButton: React.FC<ButtonProps> = ({
   }
 
   return (
-    <button className={`${buttonClass} ${className}`} onClick={onClick}>
+    <button className={`${buttonClass} ${className}`} onClick={handleClick}>
       {text}
     </button>
   );

@@ -1,6 +1,6 @@
 import CustomButton from '@/components/Button';
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
 // interface PageProps {
@@ -48,11 +48,11 @@ const Signup = () => {
         type="contained"
         onClick={handleBackHome}
       />
-      <div class="text-center mt-4">
-        <span class="text-gray-600">Đã có tài khoản? </span>
+      <div className="text-center mt-4">
+        <span className="text-gray-600">Đã có tài khoản? </span>
         <a
           href="/login"
-          class="text-blue-500 hover:text-blue-700 font-semibold"
+          className="text-blue-500 hover:text-blue-700 font-semibold"
         >
           {t('login')}
         </a>

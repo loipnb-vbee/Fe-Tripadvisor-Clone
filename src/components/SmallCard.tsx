@@ -6,6 +6,7 @@ type cardProp = {
   text: string;
   type: string;
   description?: string;
+  thumbnail?: string;
 };
 
 const cardType = {
@@ -18,6 +19,7 @@ const SmallCard: React.FC<cardProp> = ({
   text,
   type = cardType.DEFAULT,
   description,
+  thumbnail,
 }) => {
   switch (type) {
     case cardType.DEFAULT:
@@ -53,11 +55,16 @@ const SmallCard: React.FC<cardProp> = ({
       );
 
     case cardType.FIG_DESCRIPTION:
+      let imgSrc = '/card-small.jpg';
+      if (!!thumbnail)
+        imgSrc =
+          thumbnail?.replace('{width}', '400')?.replace('{height}', '-1') ||
+          'empty';
       return (
         <div className="flex flex-col w-full md:w-[48%] xl:w-[31%] py-5 gap-2 text-white">
           <Image
             className="cursor-pointer w-full object-fill overflow-hidden aspect-video rounded-3xl"
-            src="/card-small.jpg"
+            src={imgSrc}
             alt="case study image"
             decoding="async"
             // loading="lazy"
