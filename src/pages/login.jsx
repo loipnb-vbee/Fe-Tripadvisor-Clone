@@ -41,11 +41,11 @@ const Index = () => {
         type="contained"
         onClick={handleBackHome}
       />
-      <div class="text-center mt-4">
-        <span class="text-gray-600">Chưa có tài khoản? </span>
+      <div className="text-center mt-4">
+        <span className="text-gray-600">Chưa có tài khoản? </span>
         <a
           href="/signup"
-          class="text-blue-500 hover:text-blue-700 font-semibold"
+          className="text-blue-500 hover:text-blue-700 font-semibold"
         >
           {t('signup')}
         </a>

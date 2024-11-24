@@ -15,42 +15,66 @@ import DrinkAndFood from './DrinkAndFood';
 import TopRestaurant from './TopRestaurant';
 import CollectionRecommendation from './CollectionRecommendation';
 import CityRecommendation from './CityRecommendation';
-// import apis from '../../apis';
-// import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import apis from '../../apis';
+import { themeQuerry } from '@/apis/theme';
+
+type Location = {
+  placeType: string;
+  locations?: Array<Record<string, any>>;
+};
+
+type LocationsForSelectedThemes = {
+  locationsForPlaceTypes: Location[];
+};
 
 const Home = () => {
   // const { t, i18n } = useTranslation();
-  // const fetchHotels = async () => {
-  //   const response = await apis.hotel.getHotels({
-  //     offset: 10,
-  //     limit: 20,
-  //   });
-  //   console.log(response);
-  //   if (response?.status !== 1) return;
+  // const [locationsForThemes, setLocationsForThemes] = useState([]);
+  // const [locationsForSelectedThemes, setLocationsForSelectedThemes] =
+  //   useState<LocationsForSelectedThemes | null>(null);
+
+  // const handleChangeLocationsForSelectedThemes = (value) =>
+  //   setLocationsForSelectedThemes(value);
+
+  // const fetchLocationsForTheme = async () => {
+  //   const response = await themeQuerry();
+  //   setLocationsForSelectedThemes(
+  //     response[0].data.themesGetThemesAndLocationsForGeo[0]
+  //       .locationsForSelectedTheme,
+  //   );
+  //   setLocationsForThemes(
+  //     response[0].data.themesGetThemesAndLocationsForGeo[0].locationsForThemes,
+  //   );
   // };
 
   // useEffect(() => {
-  //   fetchHotels();
+  //   fetchLocationsForTheme();
   // }, []);
 
   return (
+    // <div>
+
+
+    // </div>
     <Layout>
-      <SwiperLocation />
+      {/* <SwiperLocation />
       <Description />
-      <CategoryFilter />
-      <EntertainmentActivity />
-      <HotelsList />
-      <DrinkAndFood />
-      <TopRestaurant />
-      <CollectionRecommendation />
-      <CityRecommendation />
-      {/* <SearchPlace /> */}
-      {/* <TopPlace /> */}
-      {/* <GourmetSuggest /> */}
-      {/* <RecommendedForYou /> */}
-      {/* <DiscoverMore /> */}
-      {/* <NextVacationSpot /> */}
-      <TravellersChoiceAwards />
+      <CategoryFilter
+        locationsForThemes={locationsForThemes}
+        handleChangeLocationsForSelectedThemes={
+          handleChangeLocationsForSelectedThemes
+        }
+      />
+      {locationsForSelectedThemes?.locationsForPlaceTypes?.map(
+        (item: Location) => (
+          <EntertainmentActivity
+            locations={item.locations}
+            placeType={item.placeType}
+          />
+        ),
+      )}
+      <TravellersChoiceAwards /> */}
     </Layout>
   );
 };

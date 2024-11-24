@@ -1,5 +1,6 @@
 
 import '../styles/globals.css'; // Import global styles
+import '../styles/section4.css';
 import React from 'react';
 import type { AppProps } from 'next/app'; // TypeScript types for App component
 import { appWithTranslation } from 'next-i18next';
