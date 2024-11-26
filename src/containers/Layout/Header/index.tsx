@@ -1,12 +1,15 @@
+import GlobalNav from './GlobalNax';
+import LocalNav from './LocalNax.tsx';
+
 const Header = () => {
   return (
-    <div>
-      <div></div>
-      <header className="sticky bg-primary t-0 z-overlays box-border w-full">
-<div className="box-border max-w-full min-w-[1%] w-[]"></div>
-
+    <>
+      <header className="sticky bg-primary top-0 z-overlays box-border w-full">
+        {/* <div class="transition-min-width w-[10px] min-w-[100px] hover:min-w-[200px] bg-blue-300 h-12" /> */}
+        <GlobalNav />
+        <LocalNav />
       </header>
-    </div>
+    </>
   );
 };
 
