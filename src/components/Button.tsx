@@ -20,7 +20,8 @@ const CustomButton: React.FC<ButtonProps> = ({
   onClick,
   className,
 }) => {
-  let buttonClass = 'rounded-[20px] py-[10px] px-4 font-bold text-base';
+  // let buttonClass = 'rounded-[20px] py-[10px] px-4 font-bold text-base';
+  let buttonClass = '';
 
   const handleClick = () => {
     if (onClick) onClick();
@@ -28,7 +29,8 @@ const CustomButton: React.FC<ButtonProps> = ({
 
   switch (type) {
     case buttonType.TEXT:
-      buttonClass += ' bg-transparent hover:bg-gray-100';
+      buttonClass +=
+        'hover:bg-primaryButtonText-hover bg-clip-padding inline-block relative transition-colors duration-100 ease-linear appearance-none border-none box-border cursor-pointer text-center no-underline rounded-[20px] px-4 py-[10px]';
       break;
     case buttonType.CONTAINED:
       buttonClass += ' bg-yellow-500 text-white hover:bg-slate-700';
@@ -43,7 +45,7 @@ const CustomButton: React.FC<ButtonProps> = ({
 
   return (
     <button className={`${buttonClass} ${className}`} onClick={handleClick}>
-      {text}
+      <span className="font-bold text-base">{text}</span>
     </button>
   );
 };

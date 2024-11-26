@@ -1,6 +1,9 @@
 import type { Config } from 'tailwindcss';
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+const maxContentWidth = 1136; // px
+const pageMargin = 24; // px
+
 const config: Config = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
@@ -106,22 +109,35 @@ const config: Config = {
         lightText: {
           DEFAULT: '#787878',
         },
+        dividerFill: {
+          DEFAULT: '#e0e0e0',
+        },
+        primaryButtonFill: {
+          DEFAULT: '#000',
+          hover: '#333',
+        },
+        primaryButtonText: {
+          DEFAULT: '#fff',
+          hover: '#bababa',
+        },
       },
       fontFamily: {},
+      transitionProperty: {
+        'min-width': 'min-width',
+      },
+      transitionTimingFunction: {
+        'trip-ease': 'cubic-bezier(0.25, 0.1, 0, 1)',
+      },
       spacing: {
-        338: '21.125rem',
-        370: '23.125rem',
-        416: '26rem',
-        448: '28rem',
-        500: '31.25rem',
-        560: '35rem',
-        600: '40rem',
-        768: '48rem',
-        864: '54rem',
-        960: '60rem',
-        1400: '87.5rem',
-        1440: '90rem',
-        7.5: '30px',
+        15: '60px',
+        'spacing-01': '4px',
+        'spacing-02': '8px',
+        'spacing-03': '16px',
+        'spacing-04': '24px',
+        'spacing-06': '48px',
+        'max-content-width': `${maxContentWidth}px`,
+        'page-margin': `${pageMargin}px`,
+        'content-width': `${maxContentWidth + pageMargin * 2}px`,
       },
       fontSize: {
         22: '1.375rem',

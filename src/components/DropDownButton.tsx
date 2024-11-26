@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 type DropDownButtonProps = {
   text: string;
@@ -35,8 +35,8 @@ const DropdownButton: React.FC<DropDownButtonProps> = ({ text, items }) => {
       )
         setIsOpen(false);
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [dropdownRef]);
 
   return (
@@ -44,9 +44,9 @@ const DropdownButton: React.FC<DropDownButtonProps> = ({ text, items }) => {
       {/* Button to open dropdown */}
       <button
         onClick={handleToggleDropDown}
-        className="rounded-[20px] py-[10px] px-4 font-bold text-base bg-transparent hover:bg-gray-100"
+        className="hover:bg-primaryButtonText-hover bg-clip-padding inline-block relative transition-colors duration-100 ease-linear appearance-none border-none box-border cursor-pointer text-center no-underline rounded-[20px] px-4 py-[10px]"
       >
-        {text}
+        <span className="font-bold text-base">{text}</span>
       </button>
       {/* Dropdown menu */}
       {isOpen && (
