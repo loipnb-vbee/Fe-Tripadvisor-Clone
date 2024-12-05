@@ -1,3 +1,112 @@
+const PictureSWiper = () => {
+  const screenSetting = [
+    { maxWidth: 400, width1x: 400, height1x: 200, width2x: 800, height2x: 300 },
+    {
+      maxWidth: 500,
+      width1x: 500,
+      height1x: 200,
+      width2x: 1000,
+      height2x: 400,
+    },
+    {
+      maxWidth: 600,
+      width1x: 600,
+      height1x: 300,
+      width2x: 1200,
+      height2x: 500,
+    },
+    {
+      maxWidth: 700,
+      width1x: 700,
+      height1x: 300,
+      width2x: 1400,
+      height2x: 600,
+    },
+    {
+      maxWidth: 800,
+      width1x: 800,
+      height1x: 300,
+      width2x: 1600,
+      height2x: 600,
+    },
+    {
+      maxWidth: 900,
+      width1x: 900,
+      height1x: 400,
+      width2x: 1800,
+      height2x: 700,
+    },
+    {
+      maxWidth: 1000,
+      width1x: 1000,
+      height1x: 400,
+      width2x: 2000,
+      height2x: 800,
+    },
+    {
+      maxWidth: 1023,
+      width1x: 1100,
+      height1x: 500,
+      width2x: 2200,
+      height2x: 900,
+    },
+  ];
+
+  return (
+    <picture className="NhWcC _R mdkdE afQPz eXZKw">
+      {screenSetting.map((item) => (
+        <source
+          media={`(max-width: ${item.maxWidth}px)`}
+          srcSet={`https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=${item.width1x}&amp;h=${item.height1x}&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=${item.width2x}&amp;h=${item.height2x}&amp;s=1 2x`}
+        />
+      ))}
+
+      {/* <source
+        media="(max-width: 400px)"
+        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=400&amp;h=200&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=800&amp;h=300&amp;s=1 2x"
+      />
+      <source
+        media="(max-width: 500px)"
+        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=500&amp;h=200&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1000&amp;h=400&amp;s=1 2x"
+      />
+      <source
+        media="(max-width: 600px)"
+        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=600&amp;h=300&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1200&amp;h=500&amp;s=1 2x"
+      />
+      <source
+        media="(max-width: 700px)"
+        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=700&amp;h=300&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1400&amp;h=600&amp;s=1 2x"
+      />
+
+      <source
+        media="(max-width: 800px)"
+        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=800&amp;h=300&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1600&amp;h=600&amp;s=1 2x"
+      />
+      <source
+        media="(max-width: 900px)"
+        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=900&amp;h=400&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1800&amp;h=700&amp;s=1 2x"
+      />
+      <source
+        media="(max-width: 1000px)"
+        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1000&amp;h=400&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=2000&amp;h=800&amp;s=1 2x"
+      />
+      <source
+        media="(max-width: 1023px)"
+        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1100&amp;h=500&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=2200&amp;h=900&amp;s=1 2x"
+      /> */}
+      <img
+        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1400&amp;h=500&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=2400&amp;h=1000&amp;s=1 2x"
+        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1400&amp;h=500&amp;s=1"
+        width="1400"
+        height="500"
+        role="none"
+        alt=""
+        fetchPriority="high"
+      />
+    </picture>
+  );
+};
+
 const PlaceSwiper = () => {
   return (
     <div className="IDaDx Iwmxp fluiI SMjpI VawbN">
@@ -183,12 +292,12 @@ const PlaceSwiper = () => {
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="m12.631 3.632 8.578 8.577-8.58 8.58-1.062-1.06 6.77-6.77-16.075.004v-1.5l16.076-.004-6.767-6.767z"
-                      ></path>
+                       ></path>
                     </svg>
                   </button>
                 </div>
                 <div className="LbOhq">
-                  <div className="xrpyC l _U f u j rFcwj">
+                  <div className="xrpyC l _U f u j rFcwj">0
                     <div
                       className="CKBaw w-[126px]"
                       data-clicksource="IndicatorDot"
