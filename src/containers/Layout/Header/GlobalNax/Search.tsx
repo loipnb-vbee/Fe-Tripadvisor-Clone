@@ -142,7 +142,11 @@ const Search = () => {
     <>
       <div className="gqnca">
         {/* fiKGr min-w-[516px] max-w-[602px] */}
-        <div className="ZjkxF f e Wh z _f oPzxw">
+        <div
+          className={`ZjkxF f e Wh z _f oPzxw ${
+            open && 'fiKGr min-w-[516px] max-w-[602px]'
+          }`}
+        >
           <form role="search" action="/Search">
             <input
               type="hidden"
@@ -158,9 +162,8 @@ const Search = () => {
                   className="LhcRH _G _H B- G_ _S t u j H0"
                   title="Tìm kiếm"
                   aria-label="Tìm kiếm"
-                  tabindex="-1"
                 >
-                  <svg
+                   <svg
                     viewBox="0 0 24 24"
                     width="24px"
                     height="24px"
@@ -175,11 +178,10 @@ const Search = () => {
                 </button>
                 <input
                   type="search"
-                  autocomplete="off"
-                  autocorrect="off"
-                  autocapitalize="none"
-                  spellcheck="false"
-                  required=""
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="none"
+                  spellCheck="false"
                   name="q"
                   className="_G G_ B- z F1 _J w Cj R0  NBfGt H3 hUpcN FjKFQ"
                   placeholder="Tìm kiếm"
@@ -188,49 +190,64 @@ const Search = () => {
                   aria-label="Tìm kiếm"
                   aria-controls="typeahead_results"
                   aria-autocomplete="list"
-                  value=""
+                  onFocus={() => setOpen(true)}
+                  onChange={handleSearch}
+                  onBlur={() => setOpen(false)}
+                  // value=""
                 />
               </div>
             </div>
-            {/* <div className="wKCwt z">
-              <div
-                id="typeahead_results"
-                role="listbox"
-                aria-labelledby="typeahead_results_header"
-                className="bHYOc _f Pj"
-                data-test-attribute="typeahead-results"
-              >
-                <hr className="VMRhJ" />
-                <a
-                  className="GzJDZ z _S _F Wc Wh Q B- _G"
-                  role="option"
-                  aria-selected="false"
-                  href="/Tourism-g29750-Atlantic_City_New_Jersey-Vacations.html"
+            {open && (
+              <div className="wKCwt z">
+                <div
+                  id="typeahead_results"
+                  role="listbox"
+                  aria-labelledby="typeahead_results_header"
+                  className="bHYOc _f Pj"
+                  data-test-attribute="typeahead-results"
                 >
-                  <div className="XYHql F0 _u z o">
-                    <picture className="NhWcC _R mdkdE afQPz eXZKw w-14 h-14">
-                      <img
-                        srcSet="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/11/4a/fe/caption.jpg?w=100&amp;h=-1&amp;s=1&amp;cx=856&amp;cy=459&amp;chk=v1_c21638ccbc4b52a45fac 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/11/4a/fe/caption.jpg?w=200&amp;h=200&amp;s=1&amp;cx=856&amp;cy=459&amp;chk=v1_c21638ccbc4b52a45fac 2x"
-                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/11/4a/fe/caption.jpg?w=100&amp;h=-1&amp;s=1&amp;cx=856&amp;cy=459&amp;chk=v1_c21638ccbc4b52a45fac"
-                        width="100"
-                        height="75"
-                        role="none"
-                        alt=""
-                        fetchpriority="high"
-                      />
-                    </picture>
-                  </div>
-                  <div className="EtzER">
-                    <div className="biGQs _P fiohW fOtGX">Atlantic City</div>
-                    <div className="DvEpD">
-                      <div className="biGQs _P pZUbB osNWb">
-                        New Jersey, Hoa Kỳ
+                  {/* <hr className="VMRhJ" /> */}
+                  {listSearch.map((item) => (
+                    <a
+                      className="GzJDZ z _S _F Wc Wh Q B- _G"
+                      role="option"
+                      aria-selected="false"
+                      href="/Tourism-g29750-Atlantic_City_New_Jersey-Vacations.html"
+                    >
+                      <div className="XYHql F0 _u z o">
+                        <picture className="NhWcC _R mdkdE afQPz eXZKw w-14 h-14">
+                          <img
+                            src={item?.details?.thumbnail?.photoSizeDynamic?.urlTemplate
+                              .replace('{width}', '100')
+                              .replace('{height}', '-1')}
+                            // "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/11/4a/fe/caption.jpg?w=100&amp;h=-1&amp;s=1&amp;cx=856&amp;cy=459&amp;chk=v1_c21638ccbc4b52a45fac"
+                            width="100"
+                            height="75"
+                            role="none"
+                            alt=""
+                            fetchPriority="high"
+                          />
+                        </picture>
                       </div>
-                    </div>
-                  </div>
-                </a>
+
+                      <div className="EtzER">
+                        <div className="biGQs _P fiohW fOtGX">
+                          {item?.details?.localizedName}
+                        </div>
+                        <div className="DvEpD">
+                          <div className="biGQs _P pZUbB osNWb">
+                            {
+                              item?.details?.localizedAdditionalNames
+                                ?.longOnlyHierarchy
+                            }
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div> */}
+            )}
           </form>
         </div>
       </div>

@@ -1,4 +1,6 @@
-const ButtonSelect = ({ text }) => {
+import { useRouter } from 'next/router';
+
+const ButtonSelect = ({ text, link }) => {
   return (
     <button
       className="PFswe d Gv B- _S Mi Nj MH NL wSSLS"
@@ -9,7 +11,10 @@ const ButtonSelect = ({ text }) => {
       data-automation="navHeader_Hotels"
     >
       <span className="biGQs _P fOtGX">
-        <a className="JBbKZ Q1" href="/Hotels-g293924-Hanoi-Hotels.html">
+        <a
+          className="JBbKZ Q1"
+          href={link || '/Hotels-g293924-Hanoi-Hotels.html'}
+        >
           {text}
         </a>
       </span>
@@ -18,6 +23,8 @@ const ButtonSelect = ({ text }) => {
 };
 
 const LocalNav = () => {
+  const router = useRouter();
+
   return (
     <span>
       <div className="overflow-hidden">
@@ -37,10 +44,7 @@ const LocalNav = () => {
                   data-automation="navHeader_Tourism"
                 >
                   <span className="biGQs _P ngXxk">
-                    <a
-                      className="JBbKZ Q1 nadlY"
-                      href="/Tourism-g293924-Hanoi-Vacations.html"
-                    >
+                    <a className="JBbKZ Q1 nadlY" href="/">
                       <svg
                         viewBox="0 0 24 24"
                         width="24px"
@@ -62,10 +66,10 @@ const LocalNav = () => {
                     </a>
                   </span>
                 </button>
-                <ButtonSelect text="Khách sạn" />
-                <ButtonSelect text="Hoạt động giải trí" />
-                <ButtonSelect text="Nhà hàng" />
-                <ButtonSelect text="Chuyến bay" />
+                <ButtonSelect text="Khách sạn" link="/hotel" />
+                <ButtonSelect text="Hoạt động giải trí" link="/attraction" />
+                <ButtonSelect text="Nhà hàng" link="/restaurant" />
+                <ButtonSelect text="Chuyến bay" link="/flight" />
               </div>
             </div>
           </div>
